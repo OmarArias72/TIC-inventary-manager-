@@ -73,6 +73,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.compose.material:material-icons-extended")
     implementation("com.vanniktech:android-image-cropper:4.6.0")
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
 
 
 }
