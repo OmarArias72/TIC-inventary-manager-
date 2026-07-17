@@ -13,9 +13,9 @@ class ExcelService(private val context: Context) {
         val workbook = XSSFWorkbook()
         val sheet = workbook.createSheet("Inventario de Equipos")
 
-        // 1. Crear Encabezados
+        // 1. Crear Encabezados (Agregado "Artículo")
         val encabezados = listOf(
-            "ID", "No. Inventario", "No. Serie", "Marca", "Modelo", "Ubicación", "Observación"
+            "ID", "No. Inventario", "No. Serie", "Artículo", "Marca", "Modelo", "Ubicación", "Observación"
         )
         val headerRow = sheet.createRow(0)
         encabezados.forEachIndexed { index, title ->
@@ -28,23 +28,21 @@ class ExcelService(private val context: Context) {
             row.createCell(0).setCellValue(item.id.toDouble())
             row.createCell(1).setCellValue(item.noInventario)
             row.createCell(2).setCellValue(item.noSerie)
-            row.createCell(3).setCellValue(item.marca)
-            row.createCell(4).setCellValue(item.modelo)
-            row.createCell(5).setCellValue(item.ubicacion)
-            row.createCell(6).setCellValue(item.observacion)
+            row.createCell(3).setCellValue(item.articulo) // <-- NUEVO CAMPO
+            row.createCell(4).setCellValue(item.marca)
+            row.createCell(5).setCellValue(item.modelo)
+            row.createCell(6).setCellValue(item.ubicacion)
+            row.createCell(7).setCellValue(item.observacion)
         }
 
-        // 3. Ajustar ancho de columnas con un valor fijo para evitar el crash de AWT en Android
         for (col in encabezados.indices) {
-            sheet.setColumnWidth(col, 15 * 256) // 15 caracteres de ancho aproximadamente
+            sheet.setColumnWidth(col, 15 * 256)
         }
 
-        // 4. Guardar archivo temporalmente
         val file = File(context.cacheDir, "Inventario_Equipos.xlsx")
         FileOutputStream(file).use { workbook.write(it) }
         workbook.close()
 
-        // 5. Compartir archivo usando Intent nativo
         val uri = FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"

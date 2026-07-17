@@ -25,7 +25,7 @@ interface InventarioDao {
 
 // version = 2 porque marcaModelo se dividió en marca + modelo (cambio de esquema)
 // exportSchema = false: no necesitamos guardar el historial de esquemas en JSON para este proyecto
-@Database(entities = [ItemInventario::class], version = 2, exportSchema = false)
+@Database(entities = [ItemInventario::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun inventarioDao(): InventarioDao
 }

@@ -75,5 +75,8 @@ dependencies {
     implementation("com.vanniktech:android-image-cropper:4.6.0")
     implementation("com.google.mlkit:barcode-scanning:17.2.0")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
 
 }
