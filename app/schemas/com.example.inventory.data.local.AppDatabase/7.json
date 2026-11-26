@@ -1,0 +1,129 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 7,
+    "identityHash": "fc971eff105573348fbac87de070d958",
+    "entities": [
+      {
+        "tableName": "equipos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`inventario` TEXT NOT NULL, `serie` TEXT NOT NULL, `articulo` TEXT NOT NULL, `marca` TEXT NOT NULL, `modelo` TEXT NOT NULL, `caracteristicas` TEXT NOT NULL, `estado` TEXT NOT NULL, `fecha_registro` INTEGER NOT NULL, `fecha_actualizacion_local` INTEGER NOT NULL, `fecha_actualizacion_servidor` TEXT, `existe_en_servidor` INTEGER NOT NULL, `eliminado` INTEGER NOT NULL, `estado_sync` TEXT NOT NULL, `intentos` INTEGER NOT NULL, `ultimo_error` TEXT, `version_servidor` TEXT, PRIMARY KEY(`inventario`))",
+        "fields": [
+          {
+            "fieldPath": "inventario",
+            "columnName": "inventario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serie",
+            "columnName": "serie",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articulo",
+            "columnName": "articulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marca",
+            "columnName": "marca",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caracteristicas",
+            "columnName": "caracteristicas",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaRegistro",
+            "columnName": "fecha_registro",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionLocal",
+            "columnName": "fecha_actualizacion_local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionServidor",
+            "columnName": "fecha_actualizacion_servidor",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "existeEnServidor",
+            "columnName": "existe_en_servidor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eliminado",
+            "columnName": "eliminado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoSync",
+            "columnName": "estado_sync",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intentos",
+            "columnName": "intentos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimoError",
+            "columnName": "ultimo_error",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "versionServidor",
+            "columnName": "version_servidor",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "inventario"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_equipos_estado_sync",
+            "unique": false,
+            "columnNames": [
+              "estado_sync"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_equipos_estado_sync` ON `${TABLE_NAME}` (`estado_sync`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fc971eff105573348fbac87de070d958')"
+    ]
+  }
+}
