@@ -1,0 +1,405 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 8,
+    "identityHash": "eff173a6c94154e589df27fea7df456f",
+    "entities": [
+      {
+        "tableName": "equipos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`inventario` TEXT NOT NULL, `serie` TEXT NOT NULL, `articulo` TEXT NOT NULL, `marca` TEXT NOT NULL, `modelo` TEXT NOT NULL, `caracteristicas` TEXT NOT NULL, `estado` TEXT NOT NULL, `fecha_registro` INTEGER NOT NULL, `fecha_actualizacion_local` INTEGER NOT NULL, `fecha_actualizacion_servidor` TEXT, `existe_en_servidor` INTEGER NOT NULL, `eliminado` INTEGER NOT NULL, `estado_sync` TEXT NOT NULL, `intentos` INTEGER NOT NULL, `ultimo_error` TEXT, `version_servidor` TEXT, PRIMARY KEY(`inventario`))",
+        "fields": [
+          {
+            "fieldPath": "inventario",
+            "columnName": "inventario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serie",
+            "columnName": "serie",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articulo",
+            "columnName": "articulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marca",
+            "columnName": "marca",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caracteristicas",
+            "columnName": "caracteristicas",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaRegistro",
+            "columnName": "fecha_registro",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionLocal",
+            "columnName": "fecha_actualizacion_local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionServidor",
+            "columnName": "fecha_actualizacion_servidor",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "existeEnServidor",
+            "columnName": "existe_en_servidor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eliminado",
+            "columnName": "eliminado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoSync",
+            "columnName": "estado_sync",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intentos",
+            "columnName": "intentos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimoError",
+            "columnName": "ultimo_error",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "versionServidor",
+            "columnName": "version_servidor",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "inventario"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_equipos_estado_sync",
+            "unique": false,
+            "columnNames": [
+              "estado_sync"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_equipos_estado_sync` ON `${TABLE_NAME}` (`estado_sync`)"
+          }
+        ]
+      },
+      {
+        "tableName": "salas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_sala` INTEGER NOT NULL, `codigo` TEXT NOT NULL, `nombre` TEXT NOT NULL, `ubicacion` TEXT NOT NULL, PRIMARY KEY(`id_sala`))",
+        "fields": [
+          {
+            "fieldPath": "idSala",
+            "columnName": "id_sala",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "codigo",
+            "columnName": "codigo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ubicacion",
+            "columnName": "ubicacion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id_sala"
+          ]
+        }
+      },
+      {
+        "tableName": "equipos_computo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`inventario` TEXT NOT NULL, `id_servidor` INTEGER, `serie` TEXT NOT NULL, `articulo` TEXT NOT NULL, `marca` TEXT NOT NULL, `modelo` TEXT NOT NULL, `caracteristicas` TEXT NOT NULL, `estado` TEXT NOT NULL, `id_sala` INTEGER, `procesador` TEXT NOT NULL, `ram` TEXT NOT NULL, `almacenamiento` TEXT NOT NULL, `especificaciones_hardware` TEXT NOT NULL, `sistema_operativo` TEXT NOT NULL, `software_instalado` TEXT NOT NULL, `estado_computadora` TEXT NOT NULL, `estado_cpu` TEXT NOT NULL, `estado_monitor` TEXT NOT NULL, `estado_teclado` TEXT NOT NULL, `estado_mouse` TEXT NOT NULL, `estado_cable_ethernet` TEXT NOT NULL, `observaciones` TEXT NOT NULL, `tiene_contrasena` INTEGER NOT NULL, `tiene_ultima_contrasena` INTEGER NOT NULL, `contrasena_pendiente` TEXT, `borrar_contrasena` INTEGER NOT NULL, `motivo_cambio` TEXT, `actualizado_por` TEXT, `fecha_registro` INTEGER NOT NULL, `fecha_actualizacion_local` INTEGER NOT NULL, `fecha_actualizacion_servidor` TEXT, `existe_en_servidor` INTEGER NOT NULL, `estado_sync` TEXT NOT NULL, `intentos` INTEGER NOT NULL, `ultimo_error` TEXT, `version_servidor` TEXT, PRIMARY KEY(`inventario`))",
+        "fields": [
+          {
+            "fieldPath": "inventario",
+            "columnName": "inventario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idServidor",
+            "columnName": "id_servidor",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "serie",
+            "columnName": "serie",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articulo",
+            "columnName": "articulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marca",
+            "columnName": "marca",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "caracteristicas",
+            "columnName": "caracteristicas",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idSala",
+            "columnName": "id_sala",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "procesador",
+            "columnName": "procesador",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ram",
+            "columnName": "ram",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "almacenamiento",
+            "columnName": "almacenamiento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "especificacionesHardware",
+            "columnName": "especificaciones_hardware",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sistemaOperativo",
+            "columnName": "sistema_operativo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "softwareInstalado",
+            "columnName": "software_instalado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoComputadora",
+            "columnName": "estado_computadora",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoCpu",
+            "columnName": "estado_cpu",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoMonitor",
+            "columnName": "estado_monitor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoTeclado",
+            "columnName": "estado_teclado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoMouse",
+            "columnName": "estado_mouse",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoCableEthernet",
+            "columnName": "estado_cable_ethernet",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observaciones",
+            "columnName": "observaciones",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tieneContrasena",
+            "columnName": "tiene_contrasena",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tieneUltimaContrasena",
+            "columnName": "tiene_ultima_contrasena",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contrasenaPendiente",
+            "columnName": "contrasena_pendiente",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "borrarContrasena",
+            "columnName": "borrar_contrasena",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "motivoCambio",
+            "columnName": "motivo_cambio",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "actualizadoPor",
+            "columnName": "actualizado_por",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "fechaRegistro",
+            "columnName": "fecha_registro",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionLocal",
+            "columnName": "fecha_actualizacion_local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaActualizacionServidor",
+            "columnName": "fecha_actualizacion_servidor",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "existeEnServidor",
+            "columnName": "existe_en_servidor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estadoSync",
+            "columnName": "estado_sync",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intentos",
+            "columnName": "intentos",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimoError",
+            "columnName": "ultimo_error",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "versionServidor",
+            "columnName": "version_servidor",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "inventario"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_equipos_computo_id_sala",
+            "unique": false,
+            "columnNames": [
+              "id_sala"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_equipos_computo_id_sala` ON `${TABLE_NAME}` (`id_sala`)"
+          },
+          {
+            "name": "index_equipos_computo_estado_sync",
+            "unique": false,
+            "columnNames": [
+              "estado_sync"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_equipos_computo_estado_sync` ON `${TABLE_NAME}` (`estado_sync`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'eff173a6c94154e589df27fea7df456f')"
+    ]
+  }
+}

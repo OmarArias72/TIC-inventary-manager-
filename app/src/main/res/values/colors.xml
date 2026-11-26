@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Paleta institucional UAEMéx -->
+    <color name="verde_institucional">#FF164E33</color>
+    <color name="verde_claro_institucional">#FFB7EBCB</color>
+    <color name="verde_oscuro_institucional">#FF002112</color>
+    <color name="dorado_institucional">#FFD4A017</color>
 </resources>
